@@ -1,0 +1,1240 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter18pt-Light.woff2') format('woff2'),
+         url('./fonts/Inter18pt-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter18pt-Thin.woff2') format('woff2'),
+         url('./fonts/Inter18pt-Thin.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter18pt-Medium.woff2') format('woff2'),
+         url('./fonts/Inter18pt-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter18pt-Regular.woff2') format('woff2'),
+         url('./fonts/Inter18pt-Regular.woff') format('woff');
+    font-weight: 400; 
+    font-style: normal;
+    font-display: swap;
+}
+
+
+:root {
+    --primary-color: #EBE8E8;
+    --secondary-color: #002F34;
+
+    --default-border-radius: 5px;
+
+    --font-family-base: 'Inter', sans-serif; /* sans-serif as a fallback font */
+
+    --o-transition-duration: 0.2s;
+
+    --header-height: 12vw;
+
+    --default-padding: 0;
+    --default-margin: 0;
+}
+  
+/* Main properties */
+body {
+    background-color: white;
+    transition: all var(--o-transition-duration) ease-in-out;
+}
+
+html, body {
+    margin: var(--default-margin);
+    padding: var(--default-padding);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    font-family: var(--font-family-base);
+    font-size: 0.7em;
+    color: black;
+    text-decoration: none;
+}
+
+a {
+    cursor: pointer;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    margin: 3vw 0;
+}
+
+body, p, h1, h2, h3, h4, h5, h6, a {
+    user-select: text; /* Allows text selection */
+}
+
+* {
+    user-select: text !important;
+}
+
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid #ffcc00; /* Outline color for keyboard focus */
+    outline-offset: 5px;
+}
+
+ /* This is a common technique among developers to visually hide elements while keeping them accessible for screen readers. 
+ I borrowed this approach to ensure accessibility while hiding the element visually. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: var(--default-padding);
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+
+
+
+/* header */
+header {
+    background-color: var(--secondary-color);
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 4vw;
+}
+
+.header-menu-button {
+    width: 8vw; 
+    height: 8vw;
+}
+
+.header-logo {
+    display: block;
+    width: auto; /* The container will adapt to the content */
+    max-width: 100%; 
+}
+
+.header-logo-img {
+    width: 30vw; 
+    height: auto; /* Height will automatically adjust to the width */
+}
+
+
+.burger-menu {
+    display: none;
+}
+
+.desktop-menu {
+    display: none;
+}
+
+/* Styles for burger icon */
+.menu-icon {
+    display: block;
+    width: 8vw;
+    height: 8vw;
+    margin-right: 2vw;
+}
+
+.line {
+    width: 100%;
+    background-color: rgb(243, 243, 243);
+    height: 1.5vw;
+    margin: 0 0 1.75vw 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.line-last {
+    margin-bottom: 0;
+}
+
+/* Menu slide down animation */
+@keyframes slideDown {
+    0% { transform: translateY(-20%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.menu {
+    display: none;
+    background-color: #ffffff;
+    position: fixed; 
+    top: var(--header-height);
+    left: 0; 
+    width: 100%;
+    height: calc(100vh - var(--header-height)); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1500;
+    overflow-y: auto; 
+    transition: max-height 0.3s ease-in-out;
+    animation: slideDown 0.3s ease-in-out;
+}
+
+
+/* Show menu when checkbox is checked */
+.burger-menu:checked + .menu-icon + .menu {
+    display: block;
+}
+
+/* Styles for lists */
+.menu > ul {
+    list-style: none;
+    margin: var(--default-margin);
+    padding: var(--default-padding);
+}
+
+.menu li {
+    padding: 1em;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.menu-heading {
+    font-family: var(--font-family-base);
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    margin-bottom: 0.5em;
+}
+
+.menu li ul {
+    list-style: none;
+    margin: var(--default-margin);
+    padding-left: 1em;
+}
+
+/* Styles for menu items */
+.menu li ul li {
+    padding: 0.5em 0;
+}
+
+/* Styles for links in the menu */
+.menu li ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    display: block;
+    transition: color 0.2s ease;
+}
+
+.menu-divider {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: var(--default-margin);
+}
+
+
+/* Search */
+.search-container {
+    height: 15vw;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    height: 12vw;
+}
+
+.input-container {
+    width: 75%;
+    height: 8vw;
+    border: none;
+    outline: none;
+    border-radius: 15px 0px 0px 15px;
+    padding: var(--default-padding);
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    width: 5vw; 
+    height: auto; 
+    padding-left: 1.5vw;
+    margin-right: 1vw; 
+    display: block; 
+    align-self: center; 
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.search-button {
+    width: 25%;
+    height: 8vw;
+    border: none;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 0px 15px 15px 0px;
+    padding: var(--default-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button img, .search-bar img {
+    width: 6vw;
+}
+
+/* Categories */
+.services-section {
+    height: 22vw;
+    position: relative; /* Needed for correct arrow positioning */
+}
+
+.arrow {
+    cursor: pointer;
+    padding: 20px;
+    color: black;
+    user-select: none;
+    font-size: 2.5em;
+    font-weight: bold;
+    position: absolute; /* Absolute positioning to align with the edges of the container */
+    top: 50%; 
+    transform: translateY(-50%); 
+    z-index: 10; 
+    padding-inline: 2vw;
+}
+
+#left-arrow {
+    left: 0; /* Move the left arrow to the left so it doesn't overlap the content */
+}
+
+#right-arrow {
+    right: 0; /* Move the right arrow to the right so it doesn't overlap the content */
+}
+
+.services-container {
+    width: 80%; 
+    margin: 0 auto; /* Center the container */
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 1em; 
+    scroll-snap-type: x mandatory;
+    position: relative;
+    margin-bottom: 20vw;
+}
+
+/* Chrome, Edge, Safari */
+.services-container::-webkit-scrollbar {
+    display: none; 
+}
+
+.service-card {
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: end;
+    width: 12vw; 
+    height: 24vw;
+}
+
+.service-card img {
+    width: 10vw;
+    height: 10vw;
+}
+
+.service-card p {
+    height: 3vw; 
+    font-size: 0.7em; 
+    text-align: center; 
+    display: flex;
+    align-items: center; 
+}
+
+
+/* Top articles */
+.top-articles-section {
+    background-color: var(--primary-color);
+}
+
+.top-articles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+    gap: 1em; 
+    padding: 0 1em;
+    padding-bottom: 5vw;
+}
+
+.top-article-card {
+    background-color: white;
+    border-radius: 0 0 var(--default-border-radius) var(--default-border-radius);
+    text-decoration: none;
+    position: relative;
+    pointer-events: auto; /* Allow interactivity for all child elements */
+}
+
+.top-article-card img {
+    width: 100%;
+    height: 30vw; /* Set fixed height */
+    /* aspect-ratio: 16 / 9; */
+    object-fit: cover; /* Image is cropped and fits into the specified size */
+}
+
+.top-article-text-line{
+    display: flex;
+    justify-content: space-between;
+    gap: 10%;
+}
+
+.top-article-text-line img{
+    width: 15%;
+    height: 15%;
+    margin-right: 1vw;
+}
+
+
+.top-article-content p {
+    font-family: var(--font-family-base);
+    font-size: 0.5em;
+    margin: var(--default-margin);
+    margin-left: 1vw;
+    text-decoration: none;
+} 
+
+.top-article-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.time {
+    font-size: 0.4em;
+    color: #696969; 
+    margin-top: 1em;
+    align-self: flex-end; 
+    margin-right: 1vw;
+}
+
+.top-articles {
+    font-size: 0.8em;
+}
+
+.top-articles-long {
+    grid-column: span 2; 
+}
+
+.top-articles-long .top-article-favorite {
+    width: 8%;
+    height: 8%;
+    margin-left: 7vw;
+}
+
+.section-divider {
+    border-top: 2px solid #ccc; 
+    margin: 1em auto;
+    width: 90%; 
+}
+
+/* Podcats */
+.podcast-section {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5vw;
+}
+
+.podcast-section h2 {
+    font-family: var(--font-family-base);
+    font-size: 1.5em;
+    text-align: center;
+    margin: 0.7em;
+}
+
+.podcast-card {
+    display: flex;
+    font-family: var(--font-family-base);
+    align-items: center;
+    font-size: 0.65em;
+    padding: 2vw;
+    gap: 2vw;
+    text-decoration: none; 
+    border-radius: var(--default-border-radius);
+}
+
+.podcast-card h3 {
+    font-size: 0.9em;
+    margin: var(--default-margin);
+    color: black;
+}
+
+.podcast-card img {
+    width: 40%;
+    height: 22.6%;
+    aspect-ratio: 16 / 9; 
+    object-fit: cover; /* Image is cropped and fits into the specified size */
+}
+
+.podcast-card p {
+    margin: var(--default-margin); 
+}
+
+.podcast-header-link, .top-articles {
+    text-decoration: none; 
+    color: black;
+}
+
+
+/* Subscription */
+.subscription-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+}
+
+.subscription-arrows {
+    width: 30vw; 
+    margin-left: 2vw;
+}
+
+.subscription-text {
+    color: white;
+    font-family: var(--font-family-base);
+    font-size: 0.7em;
+    font-weight: bold;
+    margin-left: 5vw;
+    text-decoration: none;
+}
+
+.subscription-button {
+    background-color: white;
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 15px;
+    padding: 0.2em 0.5em;
+    cursor: pointer;
+    font-family: var(--font-family-base);
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-right: 5vw;
+    text-decoration: none;
+}
+
+.about-section {
+    background: #CBFCDD;
+    padding: 1em; 
+    text-align: center;
+}
+
+.about-section h2 {
+    font-family: var(--font-family-base);
+    font-size: 1.2em;
+    color: var(--secondary-color);
+}
+
+.about-section p {
+    font-family: var(--font-family-base);
+    font-size: 1em;
+    font-weight: 300;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2em; 
+    
+}
+
+.social-icon {
+    width: 3em;
+    
+}
+
+.footer {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-links ul {
+    list-style: none; 
+    padding-left: 1em;
+}
+
+.footer-links a {
+    color: black;
+    text-decoration: none;
+    line-height: 1.7;
+    font-family: var(--font-family-base);
+    font-size: 1em;
+    flex: 2;
+    font-weight: bold;
+}
+
+.footer-project-info ul {
+    font-family: var(--font-family-base);
+    font-weight: 300;
+    font-size: 0.7em;
+    text-align: center;
+    list-style: none; 
+    padding: var(--default-padding);
+}
+
+
+
+@media (min-width: 375px) {
+    /* Header */
+    :root {
+        --header-height: 10vw;
+    }
+
+    header {
+        height: var(--header-height);
+    }
+
+    .menu {
+        top: var(--header-height);
+    }
+
+    .header-menu-button {
+        width: 7vw; 
+        height: 7vw;
+    }
+
+    .line {
+        height: 1.3vw;
+        margin: 0 0 1.55vw 0;
+    }
+
+    /* Search */
+    .search-container {
+        height: 12vw;
+    }
+
+    .input-container, .search-button {
+        height: 8vw;
+    }
+
+    /* Categories */
+    .services-section {
+        height: 21vw;
+    }
+
+    .service-card {
+        max-height: 23vw;
+    }
+
+
+    /* Top articles */
+    .top-article-content p {
+        font-size: 0.6em;
+    }
+
+    .top-articles-long .top-article-favorite {
+        width: 5%;
+        height: 5%;
+    }
+
+    .top-article-text-line img {
+        width: 8%;
+        height: 8%;
+    }
+
+
+    /* Podcasts */
+    .podcast-card {
+        font-size: 0.8em;
+    }
+    
+    .podcast-card h3 {
+        font-size: 1em;
+        margin-bottom: 0;
+    }
+
+    /* Subscription */
+    .subscription-banner{
+        gap: 7vw;
+    }
+}
+
+@media (min-width: 500px) {
+    /* Header */
+    :root {
+        --header-height: 8vw;
+    }
+
+    header {
+        height: var(--header-height);
+    }
+
+    .menu-icon {
+        top: var(--header-height);
+    }
+    
+    .header-logo-img {
+        width: 27vw; 
+    }
+
+    .header-menu-button {
+        width: 6vw; 
+        height: 6vw;
+    }
+
+    .line {
+        height: 1.2vw;
+        margin: 0 0 1.2vw 0;
+    }
+
+    .menu-icon {
+        width: 7vw;
+    }
+
+    .line {
+        height: 1vw;
+        margin: 1.1vw 0;
+    }
+
+    /* Search */
+    .search-container {
+        height: 8vw;
+    }
+
+    .input-container, .search-button {
+        height: 6vw;
+    }
+
+
+    /* Categories */
+    .services-section {
+        height: 15vw;
+    }
+
+    .service-card {
+        max-height: 18vw;
+    }
+
+    .service-card img {
+        width: 8vw;
+        height: 8vw;
+    }
+
+
+    /* Top articles */
+    .top-articles {
+        font-size: 0.9em;
+    }
+
+    .top-article-content p {
+        font-size: 0.8em;
+    }
+
+
+    /* Podcasts */
+    .podcast-card {
+        font-size: 1em;
+    }
+    
+    .podcast-card h3 {
+        font-size: 1em;
+    }
+
+    .podcast-card p {
+        margin-top: 0.85em;
+    }
+
+    .time {
+        font-size: 0.5em;
+    }
+
+    .podcast-card img {
+        width: 35%;
+    }
+
+
+    /* Subscription */
+    .subscription-text {
+        font-size: 0.8em;
+        margin: var(--default-margin);
+    }
+
+    .subscription-button {
+        width: 25vw;
+        height: 6vw;
+    }
+
+    .subscription-banner {
+        height: 12vw;
+    }
+
+    .subscription-arrows {
+        width: 30vw;
+        max-height: 100%;
+        object-fit: contain; /* Fit the image into the container without cutting */  
+        transform: translateX(-15%);
+    }
+
+}
+
+
+
+@media (min-width: 768px) {
+    /* Header */
+    header {
+        height: 6vw;
+    }
+
+    .header-menu-button {
+        width: 4vw; 
+        height: 4vw;
+    }
+
+    .header-logo-img {
+        width: 20vw; 
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .desktop-menu {
+        display: block;
+    }
+
+    .desktop-menu ul {
+        display: flex;
+        list-style: none;
+        gap: 1em;
+        margin: var(--default-margin);
+        padding: var(--default-padding);
+    }
+
+    .desktop-menu ul li a {
+        text-decoration: none;
+        color: white;
+        font-family: var(--font-family-base);
+        font-size: 0.8em;
+    }
+
+    .header-menu {
+        padding-right: 3vw;
+    }
+
+
+    /* Search */
+    .search-container {
+        height: 7vw;
+    }
+
+    .input-container, .search-button {
+        height: 4.5vw;
+    }
+
+    .search-button img, .search-bar img {
+        width: 3vw;
+    }
+
+
+    /* Categories */
+    .services-section {
+        height: 13vw;
+    }
+
+    .service-card {
+        max-height: 16vw;
+    }
+
+    .service-card p {
+        font-size: 0.8em;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    .services-container {
+        width: 95%;
+    }
+
+
+    /* Top articles */
+    .top-articles-container {
+        grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
+    }
+
+    .top-articles-long {
+        grid-column: span 1; 
+    }
+
+    .top-articles-long .top-article-favorite {
+        width: 6%;
+        height: 6%;
+    }
+
+    .top-article-text-line img {
+        width: 6%;
+        height: 6%;
+    }
+
+    .top-articles-hidden {
+        display: none;
+    }
+
+    .top-articles {
+        font-size: 1em;
+    }
+
+
+    /* Podcasts */
+    .podcast-card {
+        font-size: 1em;
+    }
+    
+    .podcast-card h3 {
+        font-size: 1.2em;
+        margin-bottom: 1em;
+    }
+
+    .podcast-card p {
+        margin-top: 1em;
+    }
+
+    .time {
+        font-size: 0.6em;
+    }
+
+    .podcast-card img {
+        width: 30%;
+    }
+
+
+    /* Subscription */
+    .subscription-text, .subscription-button {
+        font-size: 1em;
+    }
+
+    .subscription-button {
+        width: 20vw;
+        height: 5vw;
+    }
+
+    .subscription-banner {
+        height: 9vw;
+    }
+
+    .subscription-arrows, .subscription-text{
+        transform: translateX(-25%);
+    }
+
+
+}
+
+
+@media (min-width: 1024px) {
+    /* Header */
+    .header {
+        height: 4vw;
+    }
+
+    .header-logo-img {
+        width: 14vw; 
+    }
+
+    .header-menu-button {
+        width: 2.5vw; 
+        height: 2.5vw;
+    }
+
+
+    /* Search */
+    .search-button {
+        width: 20vw;
+    }
+
+    .input-container {
+        width: 50vw;
+        padding-left: 0;
+
+    }
+
+    .search-bar {
+        padding: var(--default-padding);
+        margin: var(--default-margin);
+        display: flex;
+        justify-content: center;
+    }
+
+    .search-container {
+        height: 5vw;
+    }
+
+    .input-container, .search-button {
+        height: 3.5vw;
+    }
+
+
+    /* Categories */
+    .services-container{
+        display: flex;
+        justify-content: space-around;
+
+    }
+
+    .service-card {
+        display: block;
+    }
+
+    .services-section {
+        height: 8vw;
+    }
+
+    .service-card {
+        max-height: 12vw;
+        align-content: center;
+    }
+
+    .service-card img {
+        width: 6vw;
+        height: 6vw;
+        padding-left: 1.7vw;
+    }
+
+    .service-card p {
+        font-size: 1em;
+        margin: var(--default-margin);
+    }
+
+
+    /* Top articles */
+    .top-articles-container {
+        grid-template-columns: repeat(auto-fit, minmax(38vw, 1fr));
+        padding: 0 6em;
+    }
+
+
+    /* Podcasts */
+    .podcast-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .podcast-container {
+        display: flex;
+        padding-inline: 8vw;
+    }
+
+    .section-divider-hidden {
+        display: none;
+    }
+
+    .podcast-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .podcast-card h3, .podcast-card p {
+        margin: var(--default-margin);
+    }
+
+    .podcast-section h2 {
+        font-size: 2em;
+    }
+
+    /* Subscription */
+    .subscription-button {
+        width: 15vw;
+        height: 3vw;
+        transform: translateX(15%);
+    }
+
+    .subscription-text {
+        transform: translateX(-35%);
+    }
+
+    .subscription-button:hover {
+        transform: translateX(15%) scale(1.02);
+        transition: var(--o-transition-duration) ease-in-out;
+    }
+    
+    .subscription-text:hover {
+        transform: translateX(-35%) scale(1.05);
+        transition: transform var(--o-transition-duration) ease-in-out;
+    }
+    
+    .subscription-arrows:hover {
+        opacity: 0.8; 
+    }
+
+    .subscription-button:active {
+        transform: translateX(15%) scale(0.98); 
+        transition: transform 0.1s ease-in-out;
+    }
+    
+    .subscription-text:active {
+        transform: translateX(-35%) scale(1.02);
+        transition: transform 0.1s ease-in-out;
+    }
+
+    /* Footer */  
+    .footer-link {
+        display: inline-block;
+        transition: transform var(--o-transition-duration) ease-in-out; 
+    }
+    
+    .menu ul li a, .desktop-menu ul li a {
+        display: inline-block;
+        transition: transform 0.3s ease; 
+    }
+
+    /*               */
+    /* Hover section */
+    /*               */
+
+    /* Adds a smooth change effect for transform */
+    .footer-link, .social-icon, 
+    .podcast-header-link, .top-articles, 
+    .service-card, .search-button img, 
+    .desktop-menu ul li a, 
+    .header-menu-img {
+        transition: transform var(--o-transition-duration);
+    }
+    
+    /* Makes elements a bit bigger when mouse is over them */
+    .footer-link:hover, 
+    .social-icon:hover, 
+    .podcast-header-link:hover, 
+    .top-articles:hover, 
+    .service-card:hover, 
+    .search-button:hover img, 
+    .desktop-menu ul li a:hover, 
+    .header-menu-img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Underlines text when mouse is over it */
+    .top-article-card p:hover,
+    .podcast-card h3:hover,
+    .podcast-card p:hover {
+        text-decoration: underline;
+    }
+}
+
+
+@media (min-width: 1440px) {
+    /* Header */
+    .header-menu-button {
+        width: 2vw; 
+        height: 2vw;
+    }
+
+    /* Search */
+    .search-container {
+        height: 4vw;
+    }
+
+    .input-container, .search-button {
+        height: 3vw;
+    }
+    
+    .search-button img, .search-bar img {
+        width: 2.5vw;
+    }
+
+
+    /* Top articles */
+    .top-article-content p {
+        font-size: 1em;
+    }
+
+    .top-articles-container {
+        grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
+        padding: 0 10em;
+    }
+
+    /* Podcasts */
+    .podcast-card {
+        font-size: 1em;
+    }
+    
+    .podcast-card h3 {
+        font-size: 1.7em;
+    }
+
+    .podcast-card p {
+        font-size: 1em;
+    }
+
+    .time {
+        font-size: 0.7em;
+    }
+
+    /* Subscription */
+    .subscription-banner {
+        height: 7vw;
+    }
+
+    .subscription-text {
+        transform: translateX(-60%);
+    }
+
+    .subscription-text:hover {
+        transform: translateX(-60%) scale(1.05);
+    }
+
+    /* Footer */
+    .footer-links {
+        font-size: 1.1em;
+    }
+}
+
+
+@media (min-width: 1920px) {
+        /* Subscription */
+        .subscription-text {
+            transform: translateX(-80%);
+        }
+    
+        .subscription-text:hover {
+            transform: translateX(-80%) scale(1.05);
+        }
+
+        .subscription-text, .subscription-button {
+            font-size: 1.2em;
+        }
+}
+
+
+.no-scroll {
+    overflow: hidden;
+}

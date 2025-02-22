@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Články.cz</title>
+    <link rel="stylesheet" href="styles.css?v=1.0">
+</head>
+<body>
+    <header class="header">
+        <a class="header-logo" href="/">
+            <img src="./images/logo.svg" alt="Logotyp webu" class="header-logo-img">
+        </a>
+
+        <nav class="desktop-menu">
+            <ul>
+                <li><a href="/">Hlavní stránka</a></li>
+                <li><a href="#top-articles">Top-Články</a></li>
+                <li><a href="#podcasts">Podcasty</a></li>
+                <li><a href="#subscription">Předplatné</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-menu">
+            <a class="header-menu-button" href="/odpovedi-na-komentare">
+                <img src="./images/commentsIcon.svg" alt="Odpovědi na komentáře" class="header-menu-img">
+            </a>
+            <a class="header-menu-button" href="/oblibene-clanky">
+                <img src="./images/favoriteIcon.svg" alt="Oblíbené Články" class="header-menu-img">
+            </a>
+            <a class="header-menu-button" href="/uzivatelsky-ucet">
+                <img src="./images/accountIcon.svg" alt="Uživatelský účet" class="header-menu-img">
+            </a>
+        </div>
+        
+
+        <!-- Checkbox to control the menu state -->
+        <input type="checkbox" id="burger-menu" class="burger-menu" style="display: none;">
+        <!-- Label that will look like a burger icon -->
+        <label for="burger-menu" class="menu-icon" tabindex="0" role="button" aria-label="Open navigation menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line line-last"></div>
+        </label>
+
+
+        <nav class="menu" style="overflow-y: auto; max-height: 100vh;">
+            <ul>
+                <li>
+                    <h3 class="menu-heading">Rubriky</h3>
+                    <ul>
+                        <li><a href="/rubriky/hlavni-zpravy">Hlavní zprávy</a></li>
+                        <li><a href="/rubriky/politika">Politika</a></li>
+                        <li><a href="/rubriky/ekonomika">Ekonomika</a></li>
+                        <li><a href="/rubriky/kultura">Kultura</a></li>
+                        <li><a href="/rubriky/zdravi">Zdraví</a></li>
+                        <li><a href="/rubriky/zivotni-styl">Životní styl</a></li>
+                        <li><a href="/rubriky/cestovani">Cestování</a></li>
+                        <li><a href="/rubriky/sport">Sport</a></li>
+                        <li><a href="/rubriky/zahranici">Zahraničí</a></li>
+                    </ul>
+                </li>
+                <hr class="menu-divider">
+                <li>
+                    <h3 class="menu-heading">Regiony</h3>
+                    <ul>
+                        <li><a href="/regiony/cesko">Česko</a></li>
+                        <li><a href="/regiony/evropa">Evropa</a></li>
+                        <li><a href="/regiony/severni-amerika">Severní Amerika</a></li>
+                        <li><a href="/regiony/jizni-amerika">Jižní Amerika</a></li>
+                        <li><a href="/regiony/asie">Asie</a></li>
+                        <li><a href="/regiony/afrika">Afrika</a></li>
+                        <li><a href="/regiony/australie-oceanie">Austrálie a Oceánie</a></li>
+                    </ul>
+                </li>
+                <hr class="menu-divider">
+                <li>
+                    <h3 class="menu-heading">Další kategorie</h3>
+                    <ul>
+                        <li><a href="/dalsi-kategorie/podcasty">Podcasty</a></li>
+                        <li><a href="/dalsi-kategorie/video">Video</a></li>
+                    </ul>
+                </li>
+                <hr class="menu-divider">
+                <li>
+                    <h3 class="menu-heading">Předplatné</h3>
+                    <ul>
+                        <li><a href="/predplatne/kupte-si-predplatne">Kupte si předplatné</a></li>
+                        <li><a href="/predplatne/sprava-predplatneho">Správa předplatného</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <h1 class="visually-hidden">Články.cz – Aktuální zprávy a články</h1>
+
+    <div class = "search-container">
+        <div class="search-bar">
+            <div class="input-container">
+                <label for="search-input">
+                    <img src="./images/search1.svg" alt="Vyhledat" class="search-icon">
+                </label>
+                <input type="text" id="search-input" class="search-input" placeholder="Co hledáte?">
+            </div>
+            <button class="search-button">
+                <img src="./images/search2.svg" alt="Spustit vyhledávání">
+            </button>
+        </div>
+    </div>
+
+    <section class="services-section">
+        <div class="arrow" id="left-arrow" tabindex="0" aria-label="Scroll left" role="button">&#8249;</div>
+        <div class="services-container">
+            
+            <a class="service-card" href="/sluzby/hlavni-zpravy">
+                <img src="./images/hlavníZprávy.png" alt="Hlavní zprávy">
+                <p>Hlavní zprávy</p>
+            </a>
+            
+            <a class="service-card" href="/sluzby/politika">
+                <img src="./images/politika.png" alt="Politika">
+                <p>Politika</p>
+            </a>
+            
+            <a class="service-card" href="/sluzby/ekonomika">
+                <img src="./images/ekonomika.png" alt="Ekonomika">
+                <p>Ekonomika</p>
+            </a>
+            
+            <a class="service-card" href="/sluzby/kultura">
+                <img src="./images/kultura.png" alt="Kultura">
+                <p>Kultura</p>
+            </a>
+            
+            <a class="service-card" href="/sluzby/zdravi">
+                <img src="./images/zdraví.png" alt="Zdraví">
+                <p>Zdraví</p>
+            </a>
+            
+            <a class="service-card" href="/sluzby/zivotni-styl">
+                <img src="./images/životníStyl.png" alt="Životní styl">
+                <p>Životní styl</p>
+            </a>
+            
+            <a class="service-card" href="/sluzby/cestovani">
+                <img src="./images/cestování.png" alt="Cestování">
+                <p>Cestování</p>
+            </a>
+            
+            <a class="service-card" href="/sluzby/sport">
+                <img src="./images/sport.png" alt="Sport">
+                <p>Sport</p>
+            </a>
+            
+            <a class="service-card" href="/sluzby/zahranici">
+                <img src="./images/zahraničí.png" alt="Zahraničí">
+                <p>Zahraničí</p>
+            </a>
+            
+        </div>
+        <div class="arrow" id="right-arrow" tabindex="0" aria-label="Scroll right" role="button">&#8250;</div>
+    </section>
+    
+
+    
+
+    
+    <section class="top-articles-section" id="top-articles">
+        <h2 ><a href="/top-clanky" class="top-articles"><br>Top-Články</a></h2>
+        <div class="top-articles-container">
+            <a class="top-article-card top-articles-long" href="/clanky/205-obeti-v-spanelsku">
+                <img src="./images/clanek1.png" alt="Po zábavách na jihovýchodě Španělska je už 205 obětí">
+                <div class="top-article-content">
+                    <div class="top-article-text-line">
+                        <p>Po zábavách na jihovýchodě Španělska je už 205 obětí</p>
+                        <img src="./images/favoriteIcon2.svg" alt="Přidat k oblíbeným článkům" class="top-article-favorite">
+                    </div>
+                    <time class="time" datetime="2024-11-01T06:41">Vydáno: 1.11.2024, 06:41</time>
+                </div>
+            </a>
+    
+            <a class="top-article-card" href="/clanky/norris-nejrychlejsi-v-treninku-f1">
+                <img src="./images/clanek2.png" alt="Norris byl nejrychlejší v jednom tréninku F1 v Brazílii">
+                <div class="top-article-content">
+                    <div class="top-article-text-line">
+                        <p>Norris byl nejrychlejší v jednom tréninku F1 v Brazílii</p>
+                        <img src="./images/favoriteIcon2.svg" alt="Přidat k oblíbeným článkům" class="top-article-favorite">
+                    </div>
+                    <time class="time" datetime="2024-11-01T17:29">Vydáno: 1.11.2024, 17:29</time>
+                </div>
+            </a>
+    
+            <a class="top-article-card" href="/clanky/manchester-united-povede-amorim">
+                <img src="./images/clanek3.png" alt="Manchester United povede Amorim, tým převezme během pauzy">
+                <div class="top-article-content">
+                    <div class="top-article-text-line">
+                        <p>Manchester United povede Amorim, tým převezme během pauzy</p>
+                        <img src="./images/favoriteIcon2.svg" alt="Přidat k oblíbeným článkům" class="top-article-favorite">
+                    </div>
+                    <time class="time" datetime="2024-11-01T15:14">Vydáno: 1.11.2024, 15:14</time>
+                </div>
+            </a>
+    
+            <a class="top-article-card top-articles-long" href="/clanky/koruna-posilila-vuci-euru-i-dolaru">
+                <img src="./images/clanek4.png" alt="Koruna posílila vůči euru i dolaru, burza uzavřela s mírnou ztrátou">
+                <div class="top-article-content">
+                    <div class="top-article-text-line">
+                        <p>Koruna posílila vůči euru i dolaru, burza uzavřela s mírnou ztrátou</p>
+                        <img src="./images/favoriteIcon2.svg" alt="Přidat k oblíbeným článkům" class="top-article-favorite">
+                    </div>
+                    <time class="time" datetime="2024-10-31T17:10">Vydáno: 31.10.2024, 17:10</time>
+                </div>
+            </a>
+    
+            <a class="top-article-card" href="/clanky/odruda-tresni">
+                <img src="./images/clanek5.png" alt="Jakou odrůdu třešní zvolit?">
+                <div class="top-article-content">
+                    <div class="top-article-text-line">
+                        <p>Jakou odrůdu třešní zvolit?</p>
+                        <img src="./images/favoriteIcon2.svg" alt="Přidat k oblíbeným článkům" class="top-article-favorite">
+                    </div>
+                    <time class="time" datetime="2024-10-30T11:05">Vydáno: 30.10.2024, 11:05</time>
+                </div>
+            </a>
+    
+            <a class="top-article-card" href="/clanky/nove-trendy-sportovni-mody-2024">
+                <img src="./images/clanek6.png" alt="Nové trendy sportovní módy 2024: Co nabízejí přední značky?">
+                <div class="top-article-content">
+                    <div class="top-article-text-line">
+                        <p>Nové trendy sportovní módy 2024: Co nabízejí přední značky?</p>
+                        <img src="./images/favoriteIcon2.svg" alt="Přidat k oblíbeným článkům" class="top-article-favorite">
+                    </div>
+                    <time class="time" datetime="2024-07-25T12:10">Vydáno: 25.7.2024, 12:10</time>
+                </div>
+            </a>
+    
+            <a class="top-article-card top-articles-long" href="/clanky/cechove-k-mori-mimo-sezonu">
+                <img src="./images/clanek7.png" alt="Stále více Čechů jezdí k moři mimo hlavní sezónu, ceny jsou nižší o třetinu">
+                <div class="top-article-content">
+                    <div class="top-article-text-line">
+                        <p>Stále více Čechů jezdí k moři mimo hlavní sezónu, ceny jsou nižší o třetinu</p>
+                        <img src="./images/favoriteIcon2.svg" alt="Přidat k oblíbeným článkům" class="top-article-favorite">
+                    </div>
+                    <time class="time" datetime="2024-10-28T12:42">Vydáno: 28.10.2024, 12:42</time>
+                </div>
+            </a>
+    
+            <a class="top-article-card" href="/clanky/nosovicka-hyundai-pozastavila-vyrobu">
+                <img src="./images/clanek8.png" alt="Nošovická Hyundai dnes nevyrábí, není poptávka po elektromobilech">
+                <div class="top-article-content">
+                    <div class="top-article-text-line">
+                        <p>Nošovická Hyundai dnes nevyrábí, není poptávka po elektromobilech</p>
+                        <img src="./images/favoriteIcon2.svg" alt="Přidat k oblíbeným článkům" class="top-article-favorite">
+                    </div>
+                    <time class="time" datetime="2024-11-01T07:38">Vydáno: 1.11.2024, 07:38</time>
+                </div>
+            </a>
+    
+            <a class="top-article-card top-articles-hidden" href="/clanky/vystava-designu-v-olomouci">
+                <img src="./images/clanek9.png" alt="Výstavu designu v Olomouci zdobí boty dávných evropských hereček">
+                <div class="top-article-content">
+                    <div class="top-article-text-line">
+                        <p>Výstavu designu v Olomouci zdobí boty dávných evropských hereček</p>
+                        <img src="./images/favoriteIcon2.svg" alt="Přidat k oblíbeným článkům" class="top-article-favorite">
+                    </div>
+                    <time class="time" datetime="2024-11-01T15:18">Vydáno: 1.11.2024, 15:18</time>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+
+    <section class="podcast-section" id="podcasts">
+        <hr class="section-divider">
+        <h2><a href="/podcasts" class="podcast-header-link">Podcasty</a></h2>
+        <div class="podcast-container">
+            <a class="podcast-card" href="/podcast1">
+                <img src="./images/podcast1.png" alt="Očima Saši Mitrofanova: Ryby a výročí státu" class="podcast-image">
+                <div class="podcast-content">
+                    <h3>Očima Saši Mitrofanova: Ryby a výročí státu</h3>
+                    <time class="time" datetime="2024-11-09">9. 11. 2024</time>
+                    <p>Dnes probíhají slavnostní akty u příležitosti 106. výročí vzniku
+                        samostatného československého státu. Nebýt globálního
+                        přerozdělení vlivu ve světě po první...</p>
+                </div>
+            </a>
+            <hr class="section-divider section-divider-hidden">
+            <a class="podcast-card" href="/podcast2">
+                <img src="./images/podcast2.png" alt="Problém se stravováním mezi dětmi přibývá. Řešení je individuální" class="podcast-image">
+                <div class="podcast-content">
+                    <h3>Problém se stravováním mezi dětmi přibývá. Řešení je individuální</h3>
+                    <time class="time" datetime="2024-08-25">25. 8. 2024</time>
+                    <p>Problémy se stravováním dětí řeší mnoho maminek. Příčina se
+                        často hledá hůř než jehla v kupce sena a řešení jsou
+                        individuální. Projekt, který se zaměřuje na...</p>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+    
+    <div class="subscription-banner" id="subscription">
+        <img src="./images/subscriptionArrows.png" alt="Grafické šipky" class="subscription-arrows">
+        <a class="subscription-text" href="/subscription">Kupte si předplatné</a>
+        <a href="/subscription2" class="subscription-link">
+            <button class="subscription-button">Další podrobnosti</button>
+        </a>
+        
+    </div>
+
+    <div class="about-section">
+        <h2>Články.cz</h2>
+        <p>Články.cz je webová platforma, kde můžete číst všechny aktuální zprávy a články na různá témata. Uživatelé mají možnost sdílet své názory, a po zakoupení předplatného mohou publikovat své vlastní materiály a oslovit širší publikum.</p>
+        
+        <p>Komunity na sociálních sítích:</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                <img src="./images/facebookIcon.svg" alt="Facebook" class="social-icon">
+            </a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+                <img src="./images/youtubeIcon.svg" alt="YouTube" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                <img src="./images/instagramIcon.svg" alt="Instagram" class="social-icon">
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <ul>
+                <li><a class="footer-link" href="/mobilni-aplikace">Mobilní aplikace</a></li>
+                <li><a class="footer-link" href="/pravidla-bezpecnosti">Pravidla bezpečnosti</a></li>
+                <li><a class="footer-link" href="/jak-koupit-predplatne">Jak koupit předplatné?</a></li>
+                <li><a class="footer-link" href="/reklama">Reklama</a></li>
+                <li><a class="footer-link" href="/o-nas">O nás</a></li>
+            </ul>
+        </div>
+    </footer>
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuContent = document.querySelector('.services-container');
+            const leftArrow = document.getElementById('left-arrow');
+            const rightArrow = document.getElementById('right-arrow');
+    
+            const updateArrowsVisibility = () => {
+                const isTabletOrLarger = window.innerWidth >= 768; // 768px is the minimum width for tablets
+    
+                if (isTabletOrLarger) {
+                    // Hide arrows on larger screens
+                    leftArrow.style.display = 'none';
+                    rightArrow.style.display = 'none';
+                    return;
+                }
+    
+                const maxScrollLeft = menuContent.scrollWidth - menuContent.clientWidth;
+    
+                // Add a small tolerance for comparison
+                const tolerance = 5;
+    
+                // Check if we can scroll left
+                if (menuContent.scrollLeft > tolerance) {
+                    leftArrow.style.display = 'block';
+                } else {
+                    leftArrow.style.display = 'none';
+                }
+    
+                // Check if we can scroll right
+                if (menuContent.scrollLeft < maxScrollLeft - tolerance) {
+                    rightArrow.style.display = 'block';
+                } else {
+                    rightArrow.style.display = 'none';
+                }
+            };
+    
+            // Initially hide the left arrow because the scroll is at the start
+            updateArrowsVisibility();
+    
+            leftArrow.addEventListener('click', () => {
+                menuContent.scrollBy({
+                    left: -200,
+                    behavior: 'smooth'
+                });
+            });
+    
+            rightArrow.addEventListener('click', () => {
+                menuContent.scrollBy({
+                    left: 200,
+                    behavior: 'smooth'
+                });
+            });
+    
+            //  Update arrow visibility while scrolling and after scrolling ends
+            menuContent.addEventListener('scroll', updateArrowsVisibility);
+            menuContent.addEventListener('scrollend', updateArrowsVisibility);
+    
+            // For browsers that do not support 'scrollend' event
+            menuContent.addEventListener('scroll', () => {
+                clearTimeout(menuContent.scrollEndTimer);
+                menuContent.scrollEndTimer = setTimeout(updateArrowsVisibility, 100);
+            });
+    
+            // Add this event listener
+            window.addEventListener('resize', updateArrowsVisibility);
+        });
+    
+        // Implementation of "like"
+        const favoriteIcons = document.querySelectorAll('.top-article-favorite');
+    
+        favoriteIcons.forEach(icon => {
+            icon.addEventListener('click', (event) => {
+                event.preventDefault(); // Cancel the link transition
+                icon.classList.toggle('liked'); // Toggle the "liked" class
+    
+                if (icon.classList.contains('liked')) {
+                    icon.src = './images/favoriteIcon2_filled.svg'; 
+                } else {
+                    icon.src = './images/favoriteIcon2.svg'; 
+                }
+            });
+        });
+    
+    
+        // Adds keyboard accessibility for left and right arrows, allowing scrolling with 'Enter' or 'Space' keys.
+        const leftArrow = document.getElementById('left-arrow');
+    
+        leftArrow.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                // Action for scrolling left
+                console.log('Scroll left action triggered');
+                leftArrow.click();// Perform an action similar to a mouse click
+            }
+        });
+    
+        const rightArrow = document.getElementById('right-arrow');
+    
+        rightArrow.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                // Action for scrolling right
+                console.log('Scroll right action triggered');
+                rightArrow.click(); // Perform an action similar to a mouse click
+            }
+        })
+    
+        const burgerMenuCheckbox = document.getElementById('burger-menu');
+
+        burgerMenuCheckbox.addEventListener('change', () => {
+            if (burgerMenuCheckbox.checked) {
+                document.body.classList.add('no-scroll');
+            } else {
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    </script>
+    
+
+</body>
+</html>
